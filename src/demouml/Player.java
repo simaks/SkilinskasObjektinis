@@ -1,5 +1,6 @@
 package demouml;
 
 public interface Player {
-    public void makeMove();
+    public String getName();
+    public char chooseLetter(String letters);
 }

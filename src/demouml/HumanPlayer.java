@@ -1,8 +1,19 @@
 package demouml;
 
-public class HumanPlayer implements Player{
+public class HumanPlayer implements Player {
+    private String name;
+
+    public HumanPlayer(String name) {
+        this.name = name;
+    }
+
     @Override
-    public void makeMove() {
-        System.out.println("Human makes a move");
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public char chooseLetter(String letters) {
+        return 'a';
     }
 }
