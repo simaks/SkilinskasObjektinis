@@ -17,6 +17,7 @@ public class Main {
         playerContainer.printPlayers();
 
         GameControlFacade gameControlFacade = new GameControlFacade();
+        gameControlFacade.addPlayer(playerFactory.getPlayer("null", "Mr. null"));
         gameControlFacade.addPlayers(playerContainer.getArrayList());
         gameControlFacade.addPlayer(playerFactory.getPlayer("SmartRobot", "Smarty3000"));
         gameControlFacade.gameRun();

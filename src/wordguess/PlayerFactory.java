@@ -9,7 +9,7 @@ public class PlayerFactory {
         } else if (playerType.equalsIgnoreCase("SmartRobot")) {
             return new SmartRobotPlayerAdapter(playerName);
         } else {
-            return null;
+            return new NullPlayer();
         }
     }
 }
