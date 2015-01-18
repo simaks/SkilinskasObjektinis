@@ -1,5 +1,6 @@
 package demouml;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class PlayerContainer {
@@ -11,25 +12,30 @@ public class PlayerContainer {
         this.robotPlayers = robotPlayers;
     }
 
-    public void showPlayers() {
+    public void printPlayers() {
+        printPlayerIterator(getArrayList().iterator());
 
-        System.out.println("NEW WAY WITH ITERATOR\n");
-
-        Iterator humans = humanPlayers.createIterator();
-        Iterator robots = robotPlayers.createIterator();
-
-        System.out.println("Humans");
-        printThePlayers(humans);
-
-        System.out.println("Robots");
-        printThePlayers(robots);
+        System.out.println("TOTAL PLAYERS: " + getArrayList().size());
     }
 
-
-    public void printThePlayers(Iterator iterator) {
+    public void printPlayerIterator(Iterator iterator) {
         while (iterator.hasNext()) {
-            Player songInfo = (Player) iterator.next();
-            System.out.println(songInfo.getName());
+            Player player = (Player) iterator.next();
+            System.out.println(player.getName());
+        }
+    }
+
+    public ArrayList<Player> getArrayList() {
+        ArrayList<Player> playerArrayList = new ArrayList<Player>();
+        addIteratorToArrayList(humanPlayers.createIterator(), playerArrayList);
+        addIteratorToArrayList(robotPlayers.createIterator(), playerArrayList);
+        return playerArrayList;
+    }
+
+    public void addIteratorToArrayList(Iterator iterator, ArrayList<Player> arrayList) {
+        while (iterator.hasNext()) {
+            Player player = (Player) iterator.next();
+            arrayList.add(player);
         }
     }
 }

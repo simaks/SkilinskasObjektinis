@@ -13,13 +13,12 @@ public class RobotPlayers implements PlayerIterator {
     }
 
     public void addPlayer(String playerName) {
-        Player player = factory.getPlayer("Human", playerName);
+        Player player = factory.getPlayer("Robot", playerName);
         players.put(playerCount++, player);
     }
 
     @Override
     public Iterator createIterator() {
-        System.out.println(playerCount);
         return players.values().iterator();
     }
 }

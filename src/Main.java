@@ -6,20 +6,18 @@ public class Main {
 
     public static void main(String[] args) {
         logger.logMessage("[****** Program start ******]");
-        PlayerFactory playerFactory = new PlayerFactory();
-        GameControlFacade gameControlFacade = new GameControlFacade();
-        gameControlFacade.addPlayer(playerFactory.getPlayer("Human", "Human 1"));
-        gameControlFacade.addPlayer(playerFactory.getPlayer("Robot", "Robot 1"));
-        gameControlFacade.addPlayer(playerFactory.getPlayer("Robot", "Robot 2"));
-//        gameControlFacade.gameRun();
-        logger.logMessage("[******  Program end  ******]");
-
         HumanPlayers humanPlayers = new HumanPlayers();
         RobotPlayers robotPlayers = new RobotPlayers();
-        humanPlayers.addPlayer("Simas");
-        humanPlayers.addPlayer("Sirvydas");
-        robotPlayers.addPlayer("K27");
+        humanPlayers.addPlayer("Jonas");
+        robotPlayers.addPlayer("R1");
+        robotPlayers.addPlayer("R2");
+        robotPlayers.addPlayer("R3");
         PlayerContainer playerContainer = new PlayerContainer(humanPlayers, robotPlayers);
-        playerContainer.showPlayers();
+        playerContainer.printPlayers();
+
+        GameControlFacade gameControlFacade = new GameControlFacade();
+        gameControlFacade.addPlayers(playerContainer.getArrayList());
+        gameControlFacade.gameRun();
+        logger.logMessage("[******  Program end  ******]");
     }
 }
