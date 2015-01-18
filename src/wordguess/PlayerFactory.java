@@ -1,4 +1,4 @@
-package demouml;
+package wordguess;
 
 public class PlayerFactory {
     public Player getPlayer(String playerType, String playerName) {

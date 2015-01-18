@@ -1,4 +1,4 @@
-package demouml;
+package wordguess;
 
 public interface Player {
     public String getName();

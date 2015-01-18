@@ -1,4 +1,4 @@
-package demouml;
+package wordguess;
 
 public class SmartRobotPlayerAdapter implements Player {
     SmartRobot smartRobot;

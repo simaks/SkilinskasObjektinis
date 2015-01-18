@@ -1,4 +1,4 @@
-import demouml.*;
+import wordguess.*;
 
 public class Main {
 

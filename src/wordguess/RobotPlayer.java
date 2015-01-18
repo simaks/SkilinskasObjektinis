@@ -1,4 +1,4 @@
-package demouml;
+package wordguess;
 
 import java.util.Random;
 
