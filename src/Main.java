@@ -3,6 +3,7 @@ import demouml.*;
 public class Main {
 
     private static Logger logger = Logger.getInstance();
+    private static PlayerFactory playerFactory = new PlayerFactory();
 
     public static void main(String[] args) {
         logger.logMessage("[****** Program start ******]");
@@ -17,6 +18,7 @@ public class Main {
 
         GameControlFacade gameControlFacade = new GameControlFacade();
         gameControlFacade.addPlayers(playerContainer.getArrayList());
+        gameControlFacade.addPlayer(playerFactory.getPlayer("SmartRobot", "Smarty3000"));
         gameControlFacade.gameRun();
         logger.logMessage("[******  Program end  ******]");
     }

@@ -15,7 +15,7 @@ public class RobotPlayer implements Player {
     }
 
     @Override
-    public char chooseLetter(String letters) {
+    public char chooseLetter(String letters, String wordStatus) {
         Random rand = new Random();
         int randomNum = rand.nextInt(letters.length());
         return letters.charAt(randomNum);

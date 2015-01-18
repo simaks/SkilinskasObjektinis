@@ -19,7 +19,7 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public char chooseLetter(String letters) {
+    public char chooseLetter(String letters, String wordStatus) {
         String input = "";
         System.out.println("Unused letters: " + letters);
         while (input.length() != 1) {

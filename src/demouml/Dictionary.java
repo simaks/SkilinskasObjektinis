@@ -14,7 +14,6 @@ public class Dictionary {
             "Doll",
             "Positive",
     };
-
     final private String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     private Dictionary() {
@@ -32,5 +31,9 @@ public class Dictionary {
         Random rand = new Random();
         int randomNum = rand.nextInt(words.length);
         return words[randomNum];
+    }
+
+    public String[] getWords() {
+        return words;
     }
 }

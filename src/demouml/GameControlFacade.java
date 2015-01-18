@@ -65,7 +65,7 @@ public class GameControlFacade {
     }
 
     private boolean askLetterFromPlayer(Player player) {
-        char chosenLetter = player.chooseLetter(this.getUnusedLetters());
+        char chosenLetter = player.chooseLetter(this.getUnusedLetters(), wordStatus());
         logger.logMessage(this.getActivePlayer().getName() + " guesses " + chosenLetter);
         if (this.usedLetters.indexOf(chosenLetter) == -1) {
             usedLetters += chosenLetter;
