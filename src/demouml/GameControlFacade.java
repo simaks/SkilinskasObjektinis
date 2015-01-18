@@ -9,11 +9,13 @@ public class GameControlFacade {
     private String word;
     private Dictionary dictionary;
     private String usedLetters;
+    private Logger logger;
 
     public GameControlFacade() {
         this.activePlayerIndex = 0;
         this.gamePlayers = new LinkedList<Player>();
         dictionary = Dictionary.getInstance();
+        logger = Logger.getInstance();
     }
 
     public void addPlayer(Player player) {
@@ -25,11 +27,13 @@ public class GameControlFacade {
         this.lettersLeft = word;
         this.usedLetters = "";
         while (!this.gameOver()) {
+            logger.logMessage("Word status: " + wordStatus());
             if (!askLetterFromPlayer(this.getActivePlayer())) {
                 switchToNextPlayerIndex();
+                logger.logMessage("[**** " + getActivePlayer().getName() + " turn. ****]");
             }
         }
-        Logger.getInstance().logMessage(this.getActivePlayer().getName() + " has won the game! Answer: " + this.word);
+        logger.logMessage(this.getActivePlayer().getName() + " has won the game! Answer: " + this.word);
     }
 
     public boolean gameOver() {
@@ -41,7 +45,7 @@ public class GameControlFacade {
     }
 
     private void switchToNextPlayerIndex() {
-        Logger.getInstance().logMessage("Switching player");
+        logger.logMessage("Switching player");
         this.activePlayerIndex++;
         if (this.activePlayerIndex >= this.gamePlayers.size()) {
             this.activePlayerIndex = 0;
@@ -50,9 +54,11 @@ public class GameControlFacade {
 
     private boolean askLetterFromPlayer(Player player) {
         char chosenLetter = player.chooseLetter(this.getUnusedLetters());
-        Logger.getInstance().logMessage(this.getActivePlayer().getName() + " guesses " + chosenLetter);
-        if (this.lettersLeft.indexOf(chosenLetter) > -1) {
+        logger.logMessage(this.getActivePlayer().getName() + " guesses " + chosenLetter);
+        if (this.usedLetters.indexOf(chosenLetter) == -1) {
             usedLetters += chosenLetter;
+        }
+        if (this.lettersLeft.indexOf(chosenLetter) > -1) {
             this.lettersLeft = this.lettersLeft.replace(Character.toString(chosenLetter), "");
             return true;
         } else {
@@ -65,6 +71,19 @@ public class GameControlFacade {
         for (int i = 0; i < this.usedLetters.length(); i++) {
             unusedLetters = unusedLetters.replace(Character.toString(usedLetters.charAt(i)), "");
         }
+        logger.logMessage(usedLetters);
         return unusedLetters;
+    }
+
+    public String wordStatus() {
+        String wordStatus = "";
+        for (int i = 0; i < this.word.length(); i++) {
+            if (usedLetters.contains(Character.toString(word.charAt(i)))) {
+                wordStatus += this.word.charAt(i);
+            } else {
+                wordStatus += "_";
+            }
+        }
+        return wordStatus;
     }
 }
