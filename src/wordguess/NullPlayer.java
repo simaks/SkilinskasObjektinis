@@ -7,7 +7,7 @@ public class NullPlayer implements Player {
 
     @Override
     public String getName() {
-        return "";
+        return "-";
     }
 
     @Override
