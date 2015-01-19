@@ -10,6 +10,11 @@ public class RobotPlayer implements Player {
     }
 
     @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
     public String getName() {
         return this.name;
     }
@@ -19,5 +24,16 @@ public class RobotPlayer implements Player {
         Random rand = new Random();
         int randomNum = rand.nextInt(letters.length());
         return letters.charAt(randomNum);
+    }
+
+    @Override
+    public Player makeCopy() {
+        Player playerObject = null;
+        try {
+            playerObject = (RobotPlayer) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return playerObject;
     }
 }

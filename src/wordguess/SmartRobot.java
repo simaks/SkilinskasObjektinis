@@ -11,6 +11,10 @@ public class SmartRobot {
         dictionary = Dictionary.getInstance();
     }
 
+    public void setIdCode(String idCode) {
+        this.idCode = idCode;
+    }
+
     public String getIdCode() {
         return this.idCode;
     }

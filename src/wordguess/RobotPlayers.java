@@ -17,6 +17,10 @@ public class RobotPlayers implements PlayerIterator {
         players.put(playerCount++, player);
     }
 
+    public void addPlayer(Player player) {
+        players.put(playerCount++, player);
+    }
+
     @Override
     public Iterator createIterator() {
         return players.values().iterator();

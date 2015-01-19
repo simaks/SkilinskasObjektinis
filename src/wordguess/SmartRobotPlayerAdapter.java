@@ -7,6 +7,11 @@ public class SmartRobotPlayerAdapter implements Player {
     }
 
     @Override
+    public void setName(String name) {
+        smartRobot.setIdCode(name);
+    }
+
+    @Override
     public String getName() {
         return smartRobot.getIdCode();
     }
@@ -14,5 +19,16 @@ public class SmartRobotPlayerAdapter implements Player {
     @Override
     public char chooseLetter(String letters, String wordStatus) {
         return smartRobot.guessLetter(letters, wordStatus);
+    }
+
+    @Override
+    public Player makeCopy() {
+        Player playerObject = null;
+        try {
+            playerObject = (SmartRobotPlayerAdapter) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return playerObject;
     }
 }

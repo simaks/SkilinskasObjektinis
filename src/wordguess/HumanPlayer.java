@@ -14,6 +14,11 @@ public class HumanPlayer implements Player {
     }
 
     @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
     public String getName() {
         return this.name;
     }
@@ -33,5 +38,16 @@ public class HumanPlayer implements Player {
             }
         }
         return input.charAt(0);
+    }
+
+    @Override
+    public Player makeCopy() {
+        Player playerObject = null;
+        try {
+            playerObject = (HumanPlayer) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return playerObject;
     }
 }

@@ -12,7 +12,11 @@ public class Main {
         humanPlayers.addPlayer("Jonas");
         robotPlayers.addPlayer("R1");
         robotPlayers.addPlayer("R2");
-        robotPlayers.addPlayer("R3");
+        Player r3 = playerFactory.getPlayer("Robot", "R3");
+        Player r3Copy = r3.makeCopy();
+        r3Copy.setName("Copy of " + r3Copy.getName());
+        robotPlayers.addPlayer(r3);
+        robotPlayers.addPlayer(r3Copy);
         PlayerContainer playerContainer = new PlayerContainer(humanPlayers, robotPlayers);
         playerContainer.printPlayers();
 
