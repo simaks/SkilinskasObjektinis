@@ -1,6 +1,6 @@
 package wordguess;
 
-public class createRobotPlayer implements PlayerChain {
+public class CreateRobotPlayer implements PlayerChain {
     private PlayerChain nextChain;
 
     @Override

@@ -1,6 +1,6 @@
 package wordguess;
 
-public class createNullPlayer implements PlayerChain {
+public class CreateNullPlayer implements PlayerChain {
 
     @Override
     public void setNextChain(PlayerChain nextChain) {

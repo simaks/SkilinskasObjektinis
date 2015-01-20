@@ -1,10 +1,10 @@
 package wordguess;
 
 public class PlayerFactory {
-    private PlayerChain chain1 = new createHumanPlayer();
-    private PlayerChain chain2 = new createRobotPlayer();
-    private PlayerChain chain3 = new createSmartRobotPlayer();
-    private PlayerChain chain4 = new createNullPlayer();
+    private PlayerChain chain1 = new CreateHumanPlayer();
+    private PlayerChain chain2 = new CreateRobotPlayer();
+    private PlayerChain chain3 = new CreateSmartRobotPlayer();
+    private PlayerChain chain4 = new CreateNullPlayer();
 
     public PlayerFactory() {
         chain1.setNextChain(chain2);
