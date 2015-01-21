@@ -1,7 +1,11 @@
 package wordguess;
 
 public class DictionaryProxy implements GetDictionaryData {
-    private Dictionary dictionary = Dictionary.getInstance();
+    private Dictionary dictionary;
+
+    DictionaryProxy(Dictionary dictionary) {
+        this.dictionary = dictionary;
+    }
 
     @Override
     public String getDictionaryAlphabet() {

@@ -6,9 +6,9 @@ public class SmartRobot {
     private String idCode;
     private GetDictionaryData dictionaryProxy;
 
-    public SmartRobot(String idCode) {
+    public SmartRobot(String idCode, Dictionary dictionary) {
         this.idCode = idCode;
-        dictionaryProxy = new DictionaryProxy();
+        dictionaryProxy = new DictionaryProxy(dictionary);
     }
 
     public void setIdCode(String idCode) {

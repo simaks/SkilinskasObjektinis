@@ -7,8 +7,8 @@ public class HumanPlayers implements PlayerIterator {
     ArrayList<Player> players;
     PlayerFactory factory;
 
-    public HumanPlayers() {
-        factory = new PlayerFactory();
+    public HumanPlayers(Dictionary dictionary) {
+        factory = new PlayerFactory(dictionary);
         players = new ArrayList<Player>();
     }
 

@@ -12,10 +12,10 @@ public class GameControlFacade {
     private String usedLetters;
     private Logger logger;
 
-    public GameControlFacade() {
+    public GameControlFacade(Dictionary dictionary) {
         this.activePlayerIndex = 0;
         this.gamePlayers = new LinkedList<Player>();
-        dictionaryData = new DictionaryProxy();
+        dictionaryData = new DictionaryProxy(dictionary);
         logger = Logger.getInstance();
     }
 

@@ -3,12 +3,12 @@ import wordguess.*;
 public class Main {
 
     private static Logger logger = Logger.getInstance();
-    private static PlayerFactory playerFactory = new PlayerFactory();
+    private static PlayerFactory playerFactory = new PlayerFactory(Dictionary.getInstance());
 
     public static void main(String[] args) {
         logger.logMessage("[****** Program start ******]");
-        HumanPlayers humanPlayers = new HumanPlayers();
-        RobotPlayers robotPlayers = new RobotPlayers();
+        HumanPlayers humanPlayers = new HumanPlayers(Dictionary.getInstance());
+        RobotPlayers robotPlayers = new RobotPlayers(Dictionary.getInstance());
         humanPlayers.addPlayer("Jonas");
         robotPlayers.addPlayer("R1");
         robotPlayers.addPlayer("R2");
@@ -20,7 +20,7 @@ public class Main {
         PlayerContainer playerContainer = new PlayerContainer(humanPlayers, robotPlayers);
         playerContainer.printPlayers();
 
-        GameControlFacade gameControlFacade = new GameControlFacade();
+        GameControlFacade gameControlFacade = new GameControlFacade(Dictionary.getInstance());
         gameControlFacade.addPlayer(playerFactory.getPlayer("null", "Mr. null"));
         gameControlFacade.addPlayers(playerContainer.getArrayList());
         gameControlFacade.addPlayer(playerFactory.getPlayer("SmartRobot", "Smarty3000"));

@@ -8,8 +8,8 @@ public class RobotPlayers implements PlayerIterator {
     int playerCount = 0;
     PlayerFactory factory;
 
-    public RobotPlayers() {
-        factory = new PlayerFactory();
+    public RobotPlayers(Dictionary dictionary) {
+        factory = new PlayerFactory(dictionary);
     }
 
     public void addPlayer(String playerName) {
