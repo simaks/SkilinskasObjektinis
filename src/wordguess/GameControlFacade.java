@@ -8,14 +8,14 @@ public class GameControlFacade {
     private int activePlayerIndex;
     private String unknownLetters;
     private String word;
-    private Dictionary dictionary;
+    private GetDictionaryData dictionaryData;
     private String usedLetters;
     private Logger logger;
 
     public GameControlFacade() {
         this.activePlayerIndex = 0;
         this.gamePlayers = new LinkedList<Player>();
-        dictionary = Dictionary.getInstance();
+        dictionaryData = new DictionaryProxy();
         logger = Logger.getInstance();
     }
 
@@ -34,7 +34,7 @@ public class GameControlFacade {
             logger.logMessage("At least 1 player is needed to start the game.");
             return;
         }
-        this.word = dictionary.getRandomWord().toLowerCase();
+        this.word = dictionaryData.getRandomDictionaryWord().toLowerCase();
         this.unknownLetters = word;
         this.usedLetters = "";
         logger.logMessage("[**** " + getActivePlayer().getName() + " turn. ****]");
@@ -79,7 +79,7 @@ public class GameControlFacade {
     }
 
     public String getUnusedLetters() {
-        String unusedLetters = dictionary.getAlphabet();
+        String unusedLetters = dictionaryData.getDictionaryAlphabet();
         for (int i = 0; i < this.usedLetters.length(); i++) {
             unusedLetters = unusedLetters.replace(Character.toString(usedLetters.charAt(i)), "");
         }

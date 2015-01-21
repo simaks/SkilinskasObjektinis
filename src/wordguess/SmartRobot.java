@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class SmartRobot {
     private String idCode;
-    private Dictionary dictionary;
+    private GetDictionaryData dictionaryProxy;
 
     public SmartRobot(String idCode) {
         this.idCode = idCode;
-        dictionary = Dictionary.getInstance();
+        dictionaryProxy = new DictionaryProxy();
     }
 
     public void setIdCode(String idCode) {
@@ -34,7 +34,7 @@ public class SmartRobot {
 
     private String bestDictionaryWord(String fit, String availableLetters) {
         String bestWord = "";
-        for (String w : dictionary.getWords()) {
+        for (String w : dictionaryProxy.getDictionaryWords()) {
             w = w.toLowerCase();
             if (wordFits(w, fit) && allLettersIn(unknownLetters(w, fit), availableLetters)) {
                 bestWord = w;
